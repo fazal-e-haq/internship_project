@@ -1,6 +1,6 @@
 # internship_project
 
-A new Flutter project.
+My first Internship Project.
 
 ## Getting Started
 
