@@ -1,0 +1,83 @@
+import 'package:flutter/material.dart';
+import 'package:internship_project/MyWidgets/my_textfield.dart';
+import 'package:internship_project/Screens/forget_password.dart';
+import 'package:internship_project/Screens/home_page.dart';
+
+class LoginScreen extends StatelessWidget {
+  LoginScreen({super.key});
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Theme.of(context).colorScheme.surface,
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              children: [
+                SizedBox(height: MediaQuery.of(context).size.height / 25),
+                Icon(
+                  Icons.map_outlined,
+                  color: Theme.of(context).colorScheme.primary,
+                  size: 100,
+                ),
+                Text(
+                  'Welcome',
+                  style: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    fontSize: 40,
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 20),
+                MyTextfield(hintText: 'Email', controller: emailController),
+                SizedBox(height: 20),
+                MyTextfield(
+                  hintText: 'Password',
+                  controller: passwordController,
+                ),
+                SizedBox(height: 5),
+                Align(
+                  alignment: Alignment.centerLeft,
+                  child: GestureDetector(
+                    onTap: (){
+
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgetPassword()));
+
+                    },
+                    child: Text(
+                      'Forget Password',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 7),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
+                  child: Container(
+                    height: 45,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.secondary,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: Center(child: Text('Login')),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
