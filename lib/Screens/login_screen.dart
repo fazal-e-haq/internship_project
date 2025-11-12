@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:internship_project/MyWidgets/my_button.dart';
 import 'package:internship_project/MyWidgets/my_textfield.dart';
 import 'package:internship_project/Screens/forget_password.dart';
 import 'package:internship_project/Screens/home_page.dart';
@@ -10,12 +11,15 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+
       backgroundColor: Theme.of(context).colorScheme.surface,
 
       body: SafeArea(
         child: SingleChildScrollView(
+          reverse: true,
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Column(
               children: [
                 SizedBox(height: MediaQuery.of(context).size.height / 25),
@@ -42,10 +46,13 @@ class LoginScreen extends StatelessWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: GestureDetector(
-                    onTap: (){
-
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgetPassword()));
-
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ForgetPassword(),
+                        ),
+                      );
                     },
                     child: Text(
                       'Forget Password',
@@ -56,22 +63,14 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height / 7),
-                GestureDetector(
+                MyButton(
                   onTap: () {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => HomePage()),
                     );
                   },
-                  child: Container(
-                    height: 45,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).colorScheme.secondary,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Center(child: Text('Login')),
-                  ),
+                  text: 'Login',
                 ),
               ],
             ),

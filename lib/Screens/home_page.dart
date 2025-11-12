@@ -8,14 +8,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: SafeArea(
-
-
-        child: Column(children: [Center(child: Text('data'))
-
-
-        ]
-
-        ),
+        child: Column(children: [Center(child: Text('data'))]),
       ),
     );
   }

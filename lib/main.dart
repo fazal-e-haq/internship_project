@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:internship_project/Screens/login_screen.dart';
-
 import 'Theme/light_theme.dart';
 
 void main() {
